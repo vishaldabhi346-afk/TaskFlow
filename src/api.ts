@@ -5,7 +5,7 @@ let cache: User[] | null = null
 
 export async function fetchUsers(): Promise<User[]> {
   if (cache) return cache
-  const res = await fetch('/public/user.json')
+  const res = await fetch('/user.json')
   if (!res.ok) throw new Error(`Could not load users (${res.status})`)
   cache = (await res.json()) as User[]
   return cache
